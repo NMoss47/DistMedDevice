@@ -1,0 +1,87 @@
+menu "DistMed Device Configuration"
+
+config WIFI_SSID
+    string "Wifi SSID"
+        default "mywifi"
+    help
+        The SSID of the DistMed Network
+
+config WIFI_PASS
+    string "Wifi password"
+        default "mypassword"
+    help
+        The Password of the DistMed Wireless Network
+
+config SNTP_SERVER
+    string "SNTP Server"
+        default "pool.ntp.org"
+    help
+        The default SNTP server to obtain network time
+	
+config MDNS_HOSTNAME
+    string "mDNS Hostname"
+        default "DistMedDevice"
+    help
+        The mDNS hostname of the device. Should be a serial number.
+config MDNS_INSTANCE
+    string "mDNS Instance"
+        default "DistMedInstance"
+    help
+        The mDNS instance of the device.
+
+config PORT_NUMBER
+    int "The port number of the device."
+        default 9999
+    help
+        "DistMed Default port number for distmed service."
+        
+config DEVICE_SERIAL_NUMBER
+    string "Serial number of the device"
+        default "DISTMED-11002017-0001"
+    help
+        "The serial number of the device. Should be a unique value"
+        
+config DEVICE_NAME
+    string "The name or asset number of the device"
+        default "DISTMED-0001"
+    help
+        "The name or asset number of the device"
+        
+config AP_SSID
+    string "AP name"
+        default "DistMed"
+    help
+        The name of AP the device creates.
+        
+config AP_PASS
+    string "AP password"
+        default "DistMedPass"
+    help
+        The password for the device's AP
+        
+config SPIFFS_BASE_ADDR
+    hex "SPIFFS Base address"
+    range 100000 1FFE000
+        default 180000
+    help
+        Starting addres of the SPIFFS area in the ESP32 Flash
+
+config SPIFFS_SIZE
+    int "SPIFFS Size in bytes"
+    range 262144 2097152
+        default 1048576
+
+config SPIFFS_LOG_BLOCK_SIZE
+    int "SPIFFS Logical block size"
+    range 4098 65536
+        default 8192
+
+config SPIFFS_LOG_PAGE_SIZE
+    int "SPIFFS Logical page size"
+    range 256 2048
+        default 256
+    help
+        Set it to the physical page size of the used SPI flash chip.
+
+endmenu
+
